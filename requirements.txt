@@ -1,0 +1,8 @@
+bardapi==0.1.33
+beautifulsoup4==4.11.1
+boto3==1.28.38
+numpy==1.23.2
+pandas==1.4.3
+psycopg2_binary==2.9.7
+Requests==2.31.0
+streamlit==1.26.0
