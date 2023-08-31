@@ -4,6 +4,6 @@ boto3==1.28.38
 numpy==1.23.2
 pandas==1.4.3
 psycopg2-binary==2.9.7
-psycopg2
+psycopg2==2.9.7
 Requests==2.31.0
 streamlit==1.26.0
