@@ -162,7 +162,7 @@ positions_list = ['Software Engineer', 'Front-End Developer', 'Back-End Develope
 
 st.title('Job Application')
 
-st.image('./headquarters2.jpg', use_column_width='always')
+st.image("https://media.istockphoto.com/id/182444113/photo/office-building-exteriors.jpg?s=612x612&w=0&k=20&c=ecyKmK4ayad81hrKpYo6F8NAkzLeFINjyHTXWwQt2us=", use_column_width='always')
 col1, col2 = st.columns(2)
 resume = col1.file_uploader('Upload your Resume')
 cover_letter = col2.file_uploader('Upload a cover letter')
