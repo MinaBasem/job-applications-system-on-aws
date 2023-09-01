@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import psycopg2
 import boto3
+from botocore.exceptions import ClientError
 
 countries_list = [
     'Afghanistan',
