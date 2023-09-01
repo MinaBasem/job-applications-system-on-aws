@@ -2,7 +2,7 @@
 
 A job applications simulation hosted on AWS, starting from the application form to applicants analysis.
 
-![System Layout](https://github.com/MinaBasem/job-applications-system-on-aws/assets/42482261/398aacf9-8275-4a1f-ab4f-f778b912d4c7)
+![System Layout](https://github.com/MinaBasem/job-applications-system-on-aws/assets/42482261/627d3a0b-476b-4fa3-9276-38a24c36a9a0)
 
 
 # Components
