@@ -131,11 +131,25 @@ countries_list = [
     'Myanmar (Burma)',
     'Namibia',
     'Nauru',
-    'Nepal','Netherlands','New Zealand','Nicaragua',
-    'Niger','Nigeria','North Korea','Northern Ireland','Norway',
-    'Oman', 'Pakistan','Palau', "Palestine", 
-    "Panama", "Papua New Guinea", "Paraguay", "Peru", 
-    "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", 
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'North Korea',
+    'Northern Ireland',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    "Palestine", 
+    "Panama", 
+    "Papua New Guinea", 
+    "Paraguay", 
+    "Peru", 
+    "Philippines", "Poland", 
+    "Portugal", "Qatar", "Romania", "Russia", "Rwanda", 
     "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
     "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Scotland", 
     "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", 
@@ -184,8 +198,7 @@ def execute_query():
 
     bar = st.progress(20)
     if resume is not None:
-        s3_client = boto3.client(
-        's3',
+        s3_client = boto3.client('s3',
         aws_access_key_id='AKIARWKX46NXT2HMNSEV',
         aws_secret_access_key='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'
         )
@@ -196,8 +209,7 @@ def execute_query():
         s3_client.upload_fileobj(resume, bucket_name, str("Resumes/" + name))
 
     if cover_letter is not None:
-        s3_client = boto3.client(
-        's3',
+        s3_client = boto3.client('s3',
         aws_access_key_id='AKIARWKX46NXT2HMNSEV',
         aws_secret_access_key='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'
         )
@@ -231,12 +243,9 @@ def execute_query():
     finally:
         if cur is not None:
             cur.close()
-            
-    SENDER = "Sender Name <job_application_replies@outlook.com>"
 
-    # Replace recipient@example.com with a "To" address. If your account 
-    # is still in the sandbox, this address must be verified.
-    RECIPIENT = applicant_email
+    SENDER = "Sender Name <job_application_replies@outlook.com>"
+    RECIPIENT = "mina.basem.2000@gmail.com"
 
     AWS_REGION = "eu-west-2"
     SUBJECT = "Job Application received."
@@ -244,24 +253,23 @@ def execute_query():
                 "This email was sent with Amazon SES using the "
                 "AWS SDK for Python (Boto).")
                 
-    # The HTML body of the email.
-    BODY_HTML = """
+    BODY_HTML = ("""
     <html>
         <head></head>
         <body>
-            <h1>Amazon SES Test (SDK for Python)</h1>
-            <p>This email was sent with
-                <a href='https://aws.amazon.com/ses/'>Amazon SES</a> using the
-                <a href='https://aws.amazon.com/sdk-for-python/'>
-                AWS SDK for Python (Boto)</a>.
+            <h1>Confirmation Email for your %s role</h1>
+            <p>
+                Hello %s %s, This email was sent as a confirmation that we have received your application
+                for a %s role at our company.
+                We will be in contact with you as soon as possible. 
+                Stay tuned!.
             </p>
         </body>
     </html>
-    """            
+    """, applicant_position, applicant_first_name, applicant_last_name, applicant_position)           
     CHARSET = "UTF-8"
 
-    # Create a new SES resource and specify a region.
-    client = boto3.client('ses', region_name=AWS_REGION)
+    client = boto3.client('ses', region_name=AWS_REGION, aws_access_key_id="AKIARWKX46NXT2HMNSEV", aws_secret_access_key="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")
 
     try:
         response = client.send_email(
@@ -292,8 +300,7 @@ def execute_query():
     except ClientError as e:
         print(e.response['Error']['Message'])
     else:
-        print("Email sent! Message ID:"),
-        print(response['MessageId'])
+        print("Email sent! Message ID:" + response['MessageId'])
 
 st.button("Submit Application", on_click=execute_query)
 
