@@ -253,20 +253,7 @@ def execute_query():
                 "This email was sent with Amazon SES using the "
                 "AWS SDK for Python (Boto).")
                 
-    BODY_HTML = ("""
-    <html>
-        <head></head>
-        <body>
-            <h1>Confirmation Email for your %s role</h1>
-            <p>
-                Hello %s %s, This email was sent as a confirmation that we have received your application
-                for a %s role at our company.
-                We will be in contact with you as soon as possible. 
-                Stay tuned!.
-            </p>
-        </body>
-    </html>
-    """, applicant_position, applicant_first_name, applicant_last_name, applicant_position)           
+    BODY_HTML = ("""<html><head></head><body><h1>Confirmation Email for your %s role</h1><p>Hello %s %s, This email was sent as a confirmation that we have received your applicationfor a %s role at our company. We will be in contact with you as soon as possible. Stay tuned!.</p></body></html>""", applicant_position, applicant_first_name, applicant_last_name, applicant_position)           
     CHARSET = "UTF-8"
 
     client = boto3.client('ses', region_name=AWS_REGION, aws_access_key_id="AKIARWKX46NXT2HMNSEV", aws_secret_access_key="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")
