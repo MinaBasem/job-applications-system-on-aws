@@ -67,7 +67,7 @@ applicant_accurate_information = st.checkbox('I understand that submiting inaccu
 applicant_agree_to_terms = st.checkbox('I agree to the terms and conditions.')
 
 submit_disabled = True
-if applicant_accurate_information.value == True & applicant_agree_to_terms.value == True:
+if applicant_accurate_information == True & applicant_agree_to_terms == True:
     submit_disabled = False
 
 st.info('Once you apply a confirmation E-mail with further instructions will be sent to your mailbox.')
