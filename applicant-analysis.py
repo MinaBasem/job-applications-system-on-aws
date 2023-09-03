@@ -7,8 +7,8 @@ import numpy as np
 conn = psycopg2.connect(
         dbname="postgres",
         user="postgres",
-        password="333666222",
-        host="job-application-db-2.com3yqtc5f7q.eu-west-2.rds.amazonaws.com",
+        password="*****",
+        host="*****",
         port="5432",
         sslmode="require"
     )
