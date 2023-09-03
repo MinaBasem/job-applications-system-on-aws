@@ -66,6 +66,10 @@ applicant_applied_before = st.checkbox('Have you applied to a position in our co
 applicant_accurate_information = st.checkbox('I understand that submiting inaccurate information could disqualify me from the job.')
 applicant_agree_to_terms = st.checkbox('I agree to the terms and conditions.')
 
+submit_disabled = True
+if applicant_accurate_information.value == True & applicant_agree_to_terms.value == True:
+    submit_disabled = False
+
 st.info('Once you apply a confirmation E-mail with further instructions will be sent to your mailbox.')
 
 submission_query = """INSERT INTO applicants (first_name, last_name, email, phone_number, address, country, position, years_experience, applicant_details, expected_salary, survey, applied_before) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
@@ -179,7 +183,7 @@ def execute_query():
     else:
         print("Email sent! Message ID:" + response['MessageId'])
 
-st.button("Submit Application", on_click=execute_query)
+st.button("Submit Application", on_click=execute_query, disabled=submit_disabled)
 
 
 
