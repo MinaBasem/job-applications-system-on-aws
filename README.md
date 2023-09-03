@@ -74,9 +74,34 @@ Here's a full example answer:
 
 <img width="811" alt="Screen Shot 2023-08-31 at 4 23 00 PM" src="https://github.com/MinaBasem/job-applications-system-on-aws/assets/42482261/824b518c-1014-47e5-84a1-2953cd3b21c7">
 
+## 3. Postgres RDS Database Instance
+
+<img align='right' width="150" alt="Screen Shot 2023-08-31 at 4 23 00 PM" src="https://seeklogo.com/images/A/aws-aurora-logo-DDA150F538-seeklogo.com.png">
+The database instance stores all the applicant infromation 
+submitted from the form and the data generator into a table.
+
+<hr></hr>
 
 
+## 4. S3 Bucket
 
+<img align ='right' width="150" alt="Screen Shot 2023-08-31 at 4 03 48 PM" src="https://cdn.worldvectorlogo.com/logos/amazon-s3-simple-storage-service.svg">
+There are 2 file inputs in the applicant form, one for resumes and the other for cover letters.
+They are divided into different folders in the bucket, each file is named after its applicant's full name.
+
+<hr></hr>
+
+## 5. Quick analysis
+
+In order to make some use of this data, I've created another streamlit page where I've conducted some basic analysis on the randomly generated applicants.
+The code generates a pandas dataframe from this data by connecting to the Postgres instance on RDS,
+then displays it in the form of tables, graphs and pie charts.
+
+<b>Example:</b>
+
+<div align='center'>
+<img align='center' width="747" src="https://github.com/MinaBasem/job-applications-system-on-aws/assets/42482261/c7fd9a19-a05c-4a77-9f89-68a92aedfcaf">
+</div>
 
 
 
