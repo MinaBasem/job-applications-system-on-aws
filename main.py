@@ -80,8 +80,8 @@ def execute_query():
     bar = st.progress(20)
     if resume is not None:
         s3_client = boto3.client('s3',
-        aws_access_key_id='AKIARWKX46NXT2HMNSEV',
-        aws_secret_access_key='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'
+        aws_access_key_id='*****',
+        aws_secret_access_key='*****'
         )
 
         id = str(applicant_first_name + "_" + applicant_last_name)
@@ -91,8 +91,8 @@ def execute_query():
 
     if cover_letter is not None:
         s3_client = boto3.client('s3',
-        aws_access_key_id='AKIARWKX46NXT2HMNSEV',
-        aws_secret_access_key='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'
+        aws_access_key_id='*****',
+        aws_secret_access_key='*****'
         )
 
         id = str(applicant_first_name + "_" + applicant_last_name)
@@ -104,8 +104,8 @@ def execute_query():
     conn = psycopg2.connect(
         dbname="postgres",
         user="postgres",
-        password="333666222",
-        host="job-application-db-2.com3yqtc5f7q.eu-west-2.rds.amazonaws.com",
+        password="*****",
+        host="*****",
         port="5432",
         sslmode="require"
     )
@@ -125,8 +125,8 @@ def execute_query():
         if cur is not None:
             cur.close()
 
-    SENDER = "Sender Name <job_application_replies@outlook.com>"
-    RECIPIENT = "mina.basem.2000@gmail.com"
+    SENDER = "Sender Name <***@outlook.com>"
+    RECIPIENT = "***.***.***@gmail.com"
 
     AWS_REGION = "eu-west-2"
     SUBJECT = "Job Application received."
@@ -150,7 +150,7 @@ def execute_query():
     """.format(applicant_position, applicant_first_name, applicant_last_name, applicant_position)           
     CHARSET = "UTF-8"
 
-    client = boto3.client('ses', region_name=AWS_REGION, aws_access_key_id="AKIARWKX46NXT2HMNSEV", aws_secret_access_key="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")
+    client = boto3.client('ses', region_name=AWS_REGION, aws_access_key_id="*****", aws_secret_access_key="*****")
 
     try:
         response = client.send_email(
